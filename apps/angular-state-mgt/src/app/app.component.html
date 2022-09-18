@@ -1,1 +1,4 @@
-<angular-state-mgt-nx-welcome></angular-state-mgt-nx-welcome>
+<router-outlet></router-outlet>
+<div *ngIf="loading$ | async" class="loading-div">
+  <mat-spinner></mat-spinner>
+</div>

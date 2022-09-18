@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="tool-bar-row">
+    <span>SENG 41293</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="menu-icon" aria-label="Example icon-button with menu icon"
+            (click)="onClickToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button class="mat-raised-button fetch-button-one" (click)="fetchData()">Fetch Data</button>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="isOpenDrawer" class="second-row tool-bar-row">
+    <button class="mat-raised-button">Fetch Data</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br/>
+
+<angular-state-mgt-post [title]="post.title" [id]="post.id"
+                           *ngFor="let post of posts$ | async"></angular-state-mgt-post>

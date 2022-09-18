@@ -1,0 +1,38 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.tool-bar-row {
+  padding: 5px 5vw;
+}
+
+.fetch-button-one {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .menu-icon {
+    display: none;
+  }
+  .fetch-button-one {
+    display: block;
+  }
+  .second-row {
+    display: none;
+  }
+}
+
+table {
+  margin: auto;
+  padding: 0 3vw;
+
+  td {
+    min-width: 130px;
+    padding-top: 30px;
+  }
+
+  .text-strong {
+    font-weight: 500;
+  }
+}
+

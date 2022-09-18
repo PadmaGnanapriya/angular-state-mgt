@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="tool-bar-row">
+    <span>SENG 41293</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="menu-icon" aria-label="Example icon-button with menu icon" (click)="onClickToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button class="mat-raised-button fetch-button-one" [routerLink]="'/'">Back To List</button>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="isOpenDrawer" class="second-row tool-bar-row">
+    <button class="mat-raised-button" [routerLink]="'/'">Back To List</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br/>
+
+<table *ngIf="(loading$ | async) === false">
+  <tbody>
+  <tr>
+    <td class="text-strong">Post Id</td>
+    <td>{{ (post$ | async)?.id}}</td>
+  </tr>
+  <tr>
+    <td class="text-strong">Post Title</td>
+    <td>{{ (post$ | async)?.title }}</td>
+  </tr>
+  <tr>
+    <td class="text-strong">Post Body</td>
+    <td>{{ (post$ | async)?.body }}</td>
+  </tr>
+  </tbody>
+</table>
+
