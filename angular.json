@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "angular-state-mgt": "apps/angular-state-mgt",
+    "angular-state-mgt-e2e": "apps/angular-state-mgt-e2e"
+  }
+}

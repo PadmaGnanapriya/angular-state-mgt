@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/angular-state-mgt/src",
+  "prefix": "angular-state-mgt",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angular-state-mgt",
+        "index": "apps/angular-state-mgt/src/index.html",
+        "main": "apps/angular-state-mgt/src/main.ts",
+        "polyfills": "apps/angular-state-mgt/src/polyfills.ts",
+        "tsConfig": "apps/angular-state-mgt/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular-state-mgt/src/favicon.ico",
+          "apps/angular-state-mgt/src/assets"
+        ],
+        "styles": ["apps/angular-state-mgt/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/angular-state-mgt/src/environments/environment.ts",
+              "with": "apps/angular-state-mgt/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-state-mgt:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-state-mgt:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-state-mgt:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/angular-state-mgt/**/*.ts",
+          "apps/angular-state-mgt/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/angular-state-mgt"],
+      "options": {
+        "jestConfig": "apps/angular-state-mgt/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
